@@ -8,13 +8,24 @@ import java.util.Scanner;
 public class Exercicio18 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Digite a temperatura em Celsius: ");
-        double celsius = scanner.nextDouble();
 
-        double conversao = (celsius * (9/5)) + 32;
+        System.out.print("Digite o limite inferior (em Celsius): ");
+        double limiteInferior = scanner.nextDouble();
 
-        System.out.print("Valor em Farenheit: " + conversao);
+        System.out.print("Digite o limite superior (em Celsius): ");
+        double limiteSuperior = scanner.nextDouble();
+
+        System.out.print("Digite o decremento (em Celsius): ");
+        double decremento = scanner.nextDouble();
+
+        for (double celsius = limiteInferior; celsius <= limiteSuperior; celsius += decremento) {
+            double fahrenheit = conversao(celsius);
+            System.out.printf("%.2f       |   %.2f\n", celsius, fahrenheit);
+        }
 
         scanner.close();
+    }
+    private static double conversao(double celsius) {
+        return (celsius * (9/5)) + 32;
     }
 }
